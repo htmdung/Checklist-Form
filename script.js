@@ -55,7 +55,6 @@ window.addEventListener('load', function() {
       faultyItems.style.visibility = 'visible';
 
       if (fuelLevel.value < 10000) {
-         //faultyItems.style.visibility = 'visible';
          fuelStatus.textContent = 'Fuel level too low for launch';
          launchStatus.textContent = 'Shuttle not ready for launch';
          launchStatus.style.color = 'red';
@@ -64,7 +63,6 @@ window.addEventListener('load', function() {
       }
 
       if (cargoMass.value > 10000) {
-         //faultyItems.style.visibility = 'visible';
          cargoStatus.textContent = 'There is too much mass for the shuttle to take off';
          launchStatus.textContent = 'Shuttle not ready for launch';
          launchStatus.style.color = 'red';
@@ -76,13 +74,10 @@ window.addEventListener('load', function() {
          launchStatus.textContent = 'Shuttle is ready for launch';
          launchStatus.style.color = 'green';
 
-         //gui yeu cau qua internet toi url nay
          fetch('https://handlers.education.launchcode.org/static/planets.json')
-          //nhan duoc du lieu dang la dang fetch, dinh dang json (nhu trang url), chuyen du lieu dang array/object trong js
             .then(function(response) {
                return response.json();
             })
-            //nhan duoc kieu du lieu da duoc chuyen doi ben tren
             .then(function(planets) {
                let planet = planets[0];
                let html = `
